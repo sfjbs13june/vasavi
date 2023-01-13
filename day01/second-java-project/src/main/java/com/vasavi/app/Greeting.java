@@ -1,7 +1,7 @@
 package com.vasavi.app;
 
 public class Greeting {
-    public String SayHi() {
+    public String SayHi(){
         return "Hi from greeting";
 
     }

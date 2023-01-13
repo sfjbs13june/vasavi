@@ -16,19 +16,19 @@ import junit.framework.TestSuite;
         public void testSayWelcome() {
             String expectedResult = "welcome from greeting";
             Greeting greeting = new Greeting();
-            String result = greeting.sayWelcome();
-            Assert.assertEquals(expectedResult, result);
+            String result1 = greeting.sayWelcome();
+            Assert.assertEquals(expectedResult, result1);
         }
         public void testSayHello() {
             String expectedResult = "hello from greeting";
             Greeting greeting = new Greeting();
-            String result = greeting.sayHello();
-            Assert.assertEquals(expectedResult, result);
+            String result2 = greeting.sayHello();
+            Assert.assertEquals(expectedResult, result2);
         }
         public void testSayBye() {
             String expectedResult = "bye from greeting";
             Greeting greeting = new Greeting();
-            String result = greeting.sayBye();
-            Assert.assertEquals(expectedResult, result);
+            String result3 = greeting.sayBye();
+            Assert.assertEquals(expectedResult, result3);
         }
 }
