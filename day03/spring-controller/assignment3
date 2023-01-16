@@ -1,0 +1,16 @@
+Create the four rest controller:
+
+controller : return
+GreetingController.java
+/greet : greet from app
+/welcome: welcome from
+/hi : hi from app
+/thanks: thanks from app
+
+
+Write the unit test for this controller
+Write the integration test for this controller
+
+The code coverage should be 80%
+
+Create readme file update with all information.
