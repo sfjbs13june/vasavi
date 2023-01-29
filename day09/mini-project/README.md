@@ -27,5 +27,5 @@ docker ps
 
 #### **Running the application in docker container**
 ``` 
-docker run -p 8080:8080 keer16/hospital-app:0.0.1-SNAPSHOT
+docker run -p 8080:8080 vas123/mini-project:0.0.1-SNAPSHOT
 ```
