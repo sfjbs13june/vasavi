@@ -1,8 +1,8 @@
 package com.vasavi.app.model;
 
-import org.springframework.stereotype.Component;
 
-@Component
+
+
 public class Prescription {
     String prescriptionId;
     String appointmentId;

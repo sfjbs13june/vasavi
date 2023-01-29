@@ -11,24 +11,44 @@ import java.util.Map;
 public class PatientController {
 private Map<String, Appointment> DoctorMap = new HashMap<String , Appointment>();
 
-@GetMapping("/my-appointment")
-    public Appointment getAppointment(String patientName){
-    Appointment appointment1 = new Appointment("1","patient1","doc1","4-jan-2023");
-    Appointment appointment2 = new Appointment("2","patientB","docB","22-jan-2023");
-    Appointment appointment3 = new Appointment("3","patientC","docC","28-jan-2023");
+Prescription prescription1 = new Prescription("111","111","headache","patient1","doc1");
+    Prescription prescription2 = new Prescription("112", "112", "fever", "patient2", "doc2");
+    Prescription prescription3 = new Prescription("113", "113", "cold", "patient3", "doc3");
 
-    DoctorMap.put(appointment1.getAppointmentId(),appointment1);
-    DoctorMap.put(appointment2.getAppointmentId(),appointment2);
-    DoctorMap.put(appointment3.getAppointmentId(),appointment3);
 
-    Appointment result = DoctorMap.get(patientName);
-    return result;
+    @RequestMapping("/patient")
+    public Map getPatient(){
+        Appointment appointment1 = new Appointment("1","patientA","docA","4-jan-2023");
+        Appointment appointment2 = new Appointment("2","patientB","docB","22-jan-2023");
+        Appointment appointment3 = new Appointment("3","patientC","docC","28-jan-2023");
 
-}
-@PostMapping("/save")
+        DoctorMap.put(appointment1.getAppointmentId(),appointment1);
+        DoctorMap.put(appointment2.getAppointmentId(),appointment2);
+        DoctorMap.put(appointment3.getAppointmentId(),appointment3);
+        return DoctorMap;
+    }
+
+    @GetMapping("patient/my-appointment")
+    public Appointment getMyAppointment(@RequestParam String patientName){
+        Appointment appointment1 = new Appointment("1","patientA","docA","4-jan-2023");
+        Appointment appointment2 = new Appointment("2","patientB","docB","22-jan-2023");
+        Appointment appointment3 = new Appointment("3","patientC","docC","28-jan-2023");
+        DoctorMap.put(appointment1.getAppointmentId(),appointment1);
+        DoctorMap.put(appointment2.getAppointmentId(),appointment2);
+        DoctorMap.put(appointment3.getAppointmentId(),appointment3);
+
+        Appointment result = DoctorMap.get(patientName);
+        return result;
+      
+       
+
+
+    }
+
+    @PostMapping("/save/patient")
     public Appointment saveAppointment(@RequestBody Appointment appointment){
-    return appointment;
-}
+        return appointment;
+    }
 
 
 }

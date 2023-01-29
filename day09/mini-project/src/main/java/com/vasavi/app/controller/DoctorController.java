@@ -19,8 +19,8 @@ public class DoctorController {
     Prescription prescription3 = new Prescription("113", "113", "cold", "patient3", "doc3");
 
     @RequestMapping("/doctor")
-    public HashMap doctor(){
-        HashMap DoctorMap = new HashMap();
+   public Map<String,Appointment> RequestDoctor(){
+
 
         Appointment appointment1 = new Appointment("1","patientA","docA","4-jan-2023");
         Appointment appointment2 = new Appointment("2","patientB","docB","22-jan-2023");
@@ -33,16 +33,18 @@ public class DoctorController {
         return DoctorMap;
     }
     @GetMapping("/doctor-appointment")
-    public HashMap getAppointment(Appointment appointment, @RequestParam String doctorName){
-        HashMap DoctorAppointment = new HashMap();
-        HashMap DoctorMap = new HashMap();
-
-
-        Appointment appointment1 = new Appointment("1","patientA","docA","4-jan-2023");
+    public List<Appointment> getDoctors(){
+        List listDoctors = new ArrayList();
+        Appointment appointment1 = new Appointment("111","patientA","docA","4-jan-2023");
         Appointment appointment2 = new Appointment("2","patientB","docB","22-jan-2023");
         Appointment appointment3 = new Appointment("3","patientC","docC","28-jan-2023");
 
-        return DoctorMap;
+        listDoctors.add(appointment1);
+        listDoctors.add(appointment2);
+        listDoctors.add(appointment3);
+        System.out.println(listDoctors);
+        return listDoctors;
+
     }
 
 

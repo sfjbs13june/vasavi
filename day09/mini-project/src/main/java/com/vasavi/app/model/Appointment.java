@@ -3,13 +3,14 @@ package com.vasavi.app.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Appointment {
 
     String appointmentId;
     String patientName;
     String doctorName;
     String date;
+
 
     public Appointment(String appointmentId, String patientName, String doctorName, String date){
 
