@@ -1,7 +1,7 @@
 /*
-package com.rama.artemis.controller;
+package com.vasavi.artemis.controller;
 
-import com.rama.artemis.producer.ArtemisProducer;
+import com.vasavi.artemis.producer.ArtemisProducer;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;

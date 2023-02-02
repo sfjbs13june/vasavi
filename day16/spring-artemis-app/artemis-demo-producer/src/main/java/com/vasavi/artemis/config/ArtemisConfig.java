@@ -1,4 +1,4 @@
-package com.rama.artemis.config;
+package com.vasavi.artemis.config;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;

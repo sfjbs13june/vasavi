@@ -1,4 +1,4 @@
-package com.rama.artemis.producer;
+package com.vasavi.artemis.producer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

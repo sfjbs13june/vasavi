@@ -1,4 +1,4 @@
-package com.rama.artemis.consumer;
+package com.vasavi.artemis.consumer;
 
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;

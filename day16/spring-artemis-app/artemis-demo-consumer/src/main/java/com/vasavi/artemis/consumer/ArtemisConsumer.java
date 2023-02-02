@@ -1,6 +1,6 @@
-package com.rama.artemis.consumer;
+package com.vasavi.artemis.consumer;
 
-import com.rama.artemis.producer.ArtemisProducer;
+import com.vasavi.artemis.producer.ArtemisProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
