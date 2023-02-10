@@ -8,9 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PrescriptionRepository extends MongoRepository<Prescription,String> {
-    public static List<Prescription> findByPatientName(String patientName) {
-        return null;
-    }
-
+    public List<Prescription> findByPatientName(String patientName);
     public Prescription save(Prescription prescription);
 }

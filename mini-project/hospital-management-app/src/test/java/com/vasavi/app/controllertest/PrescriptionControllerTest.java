@@ -36,18 +36,36 @@ public class PrescriptionControllerTest {
     }
 
     @Test
-    public void Test1() {
-        List test = new ArrayList();
-        when(PrescriptionRepository.findByPatientName(anyString())).thenReturn(test);
-        List result = prescriptionController.getAllPrescription("xyz");
-        assertEquals(test, result);
+    public void TestGetAllPrescriptions() {
+        List<Prescription> viewprescription = new ArrayList();
+        Prescription prescription2 = new Prescription("2", "1", "fever", "justin", "max");
+        viewprescription.add(prescription2);
+        when(prescriptionRepository.findByPatientName(anyString())).thenReturn(viewprescription);
+        List<Prescription> result = prescriptionController.getAllPrescription("justin");
+        assertEquals(viewprescription.size(), 1);
+        assertEquals(viewprescription.get(0).getPrescriptionId(), result.get(0).getPrescriptionId());
+        assertEquals(viewprescription.get(0).getAppointmentId(), result.get(0).getAppointmentId());
+        assertEquals(viewprescription.get(0).getDescription(), result.get(0).getDescription());
+        assertEquals(viewprescription.get(0).getPatientName(), result.get(0).getPatientName());
+        assertEquals(viewprescription.get(0).getDoctorName(), result.get(0).getDoctorName());
     }
 
+
+
     @Test
-    public void Test2() {
-        Prescription prescription1 = new Prescription();
-        when(prescriptionRepository.save(any(Prescription.class))).thenReturn(prescription1);
+    public void TestSavePrescription() {
+        Prescription saveprescription = new Prescription();
+        saveprescription.setAppointmentId("1");
+        saveprescription.setPrescriptionId("2");
+        saveprescription.setDescription("fever");
+        saveprescription.setDoctorName("max");
+        saveprescription.setPatientName("justin");
+        when(prescriptionRepository.save(any(Prescription.class))).thenReturn(saveprescription);
         Prescription result = prescriptionController.savePrescription(prescription);
-        assertEquals(prescription1, result);
+        assertEquals(saveprescription.getPrescriptionId(), result.getPrescriptionId());
+        assertEquals(saveprescription.getAppointmentId(),result.getAppointmentId());
+        assertEquals(saveprescription.getDescription(),result.getDescription());
+        assertEquals(saveprescription.getDoctorName(),result.getDoctorName());
+        assertEquals(saveprescription.getPatientName(),result.getPatientName());
     }
 }

@@ -42,41 +42,43 @@ DOCTOR-->Username:Doctor-->Password:doctor
 
 PATIENT-->Username:Patient-->Password:patient
 
-PRESCRIPTION-->Username:Prescription-->Password:prescription
 
 ```
 ### Doctor Controller
 
 ### Post
 ```
-curl -X 'POST' \
-  'http://localhost:8080/doctor/save' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "appointmentId": "12",
-  "patientName": "john",
-  "doctorName": "Alex",
-  "date": "12-2-2023",
+curl --location --request POST 'localhost:8080/doctor/save' \
+--header 'Authorization: Basic RG9jdG9yOmRvY3Rvcg==' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=BF0B23B3C292F1CEAD7EC1C1050CA6E5' \
+--data-raw '{
+  "appointmentId": "1",
+  "patientName": "justin",
+  "doctorName": "max",
+  "date": "12 march",
   "prescription": {
-    "prescriptionId": "p12",
-    "appointmentId": "12",
+    "prescriptionId": "32",
+    "appointmentId": "1",
     "description": "fever",
-    "patientName": "john",
-    "doctorName": "Alex"
+    "patientName": "justin",
+    "doctorName": "max"
   }
-}'
+}'}'
 
 REQUEST URL - http://localhost:8080/doctor/save
 ```
 
 ### GET
 ```
-curl -X 'GET' \
-  'http://localhost:8080/doctor/doctor-appointment?doctorName=Alex' \
-  -H 'accept: */*'
+curl --location --request GET 'http://localhost:8080/doctor/doctor-appointment?doctorName=max' \
+--header 'Authorization: Basic RG9jdG9yOmRvY3Rvcg==' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=A7B0E2EC41D1E688A4E61AD3D958015C'
 
-REQUEST URL - http://localhost:8080/doctor/doctor-appointment?doctorName=Alex
+
+
+REQUEST URL - http://localhost:8080/doctor/doctor-appointment?doctorName=max
 
 ```
 
@@ -84,52 +86,57 @@ REQUEST URL - http://localhost:8080/doctor/doctor-appointment?doctorName=Alex
 
 ### Post
 ```
-curl -X 'POST' \
-  'http://localhost:8080/patient/save' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "appointmentId": "44",
+curl --location --request POST 'localhost:8080/patient/save' \
+--header 'Authorization: Basic UGF0aWVudDpwYXRpZW50' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=BF0B23B3C292F1CEAD7EC1C1050CA6E5' \
+--data-raw '{
+  "appointmentId": "1",
   "patientName": "justin",
-  "doctorName": "Max",
-  "date": "12 march",
+  "doctorName": "mark",
+  "date": "12 feb",
   "prescription": {
-    "prescriptionId": "p22",
-    "appointmentId": "44",
-    "description": "headache",
+    "prescriptionId": "22",
+    "appointmentId": "1",
+    "description": "fever",
     "patientName": "justin",
-    "doctorName": "max"
+    "doctorName": "mark"
   }
 }'
+
+
 
 REQUEST URL - http://localhost:8080/patient/save
 ```
 
 ### GET
 ```
-curl -X 'GET' \
-  'http://localhost:8080/patient/my-appointment?patientName=justine' \
-  -H 'accept: */*'
+curl --location --request GET 'http://localhost:8080/patient/my-appointment?patientName=justin' \
+--header 'Authorization: Basic UGF0aWVudDpwYXRpZW50' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=A7B0E2EC41D1E688A4E61AD3D958015C'
 
 
-REQUEST URL - http://localhost:8080/patient/my-appointment?patientName=justine
+
+REQUEST URL - http://localhost:8080/patient/my-appointment?patientName=justin
 
 ```
 ### Prescription Controller
 
 ### Post
 ```
-curl -X 'POST' \
-  'http://localhost:8080/prescription/save-prescription' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "prescriptionId": "p11",
-  "appointmentId": "65",
-  "description": "migraine",
-  "patientName": "olivia",
-  "doctorName": "harry"
+curl --location --request POST 'http://localhost:8080/prescription/save-prescription' \
+--header 'Authorization: Basic UGF0aWVudDpwYXRpZW50' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=A7B0E2EC41D1E688A4E61AD3D958015C' \
+--data-raw '{
+  "prescriptionId": "2",
+  "appointmentId": "1",
+  "description": "fever",
+  "patientName": "justin",
+  "doctorName": "max"
 }'
+
 
 
 REQUEST URL - http://localhost:8080/prescription/save-prescription
@@ -137,10 +144,13 @@ REQUEST URL - http://localhost:8080/prescription/save-prescription
 
 ### GET
 ```
-curl -X 'GET' \
-  'http://localhost:8080/prescription/view-prescription?patientName=olivia' \
-  -H 'accept: */*'
+curl --location --request GET 'http://localhost:8080/prescription/view-prescription?patientName=justin' \
+--header 'Authorization: Basic UGF0aWVudDpwYXRpZW50' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=A7B0E2EC41D1E688A4E61AD3D958015C' 
 
 
-REQUEST URL - http://localhost:8080/prescription/view-prescription?patientName=olivia
+
+
+REQUEST URL - http://localhost:8080/prescription/view-prescription?patientName=justin
 ```

@@ -15,7 +15,7 @@ public class Security extends WebSecurityConfigurerAdapter {
             "/swagger-resources/**"
     };
     @Override
-    public void configure(HttpSecurity http)throws Exception{
+    protected void configure(HttpSecurity http)throws Exception{
         http.httpBasic().and().authorizeRequests()
                 .antMatchers(AUTH_LIST).hasAnyRole("DOCTOR","PATIENT")
                 .antMatchers(HttpMethod.GET,"/doctor/doctor-appointment").hasAnyRole("DOCTOR")

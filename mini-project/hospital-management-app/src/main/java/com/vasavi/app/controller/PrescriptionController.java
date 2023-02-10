@@ -16,7 +16,7 @@ public class PrescriptionController {
     PrescriptionRepository prescriptionRepository;
     @RequestMapping(value = "/view-prescription",method = RequestMethod.GET)
    public List<Prescription> getAllPrescription(@RequestParam String patientName){
-        return PrescriptionRepository.findByPatientName(patientName);
+        return prescriptionRepository.findByPatientName(patientName);
     }
     @RequestMapping(value = "/save-prescription",method = RequestMethod.POST)
     public Prescription savePrescription(@RequestBody Prescription prescription){

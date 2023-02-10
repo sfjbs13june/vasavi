@@ -35,21 +35,44 @@ public class DoctorControllerTest {
     }
 
     @Test
-    public void Test1(){
-        List test=new ArrayList();
-        when(appointmentRepository.findByDoctorName(anyString())).thenReturn(test);
-        List result=doctorController.getAppointments("abc");
-        assertEquals(test,result);
+   public void Test1(){
+        List<Appointment> appointment = new ArrayList();
+        Appointment appointment1 = new Appointment();
+        appointment1.setAppointmentId("1");
+        appointment1.setDoctorName("max");
+        appointment1.setDate("20 march");
+        appointment1.setPatientName("justin");
+        appointment.add(appointment1);
+        when(appointmentRepository.findByDoctorName(anyString())).thenReturn(appointment);
+        List<Appointment> result=doctorController.getAppointments("max");
+
+        assertEquals(appointment.size(),1);
+        assertEquals(appointment.get(0).getAppointmentId(),result.get(0).getAppointmentId());
+        assertEquals(appointment.get(0).getDoctorName(),result.get(0).getDoctorName());
+        assertEquals(appointment.get(0).getPatientName(),result.get(0).getPatientName());
+        assertEquals(appointment.get(0).getDate(),result.get(0).getDate());
+
+
+
+
     }
 
     @Test
     public void Test2(){
-        Appointment appointment1=new Appointment();
-        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment1);
-        Appointment result=doctorController.saveAppointment(appointment);
-        assertEquals(appointment1,result);
+        Appointment saveAppointment=new Appointment();
+        saveAppointment.setAppointmentId("12");
+        saveAppointment.setDate("1 dec");
+        saveAppointment.setDoctorName("arun");
+        saveAppointment.setPatientName("john");
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(saveAppointment);
+        Appointment result = doctorController.saveAppointment(appointment);
+        assertEquals(saveAppointment.getAppointmentId(), result.getAppointmentId());
+        assertEquals(saveAppointment.getDate(), result.getDate());
+        assertEquals(saveAppointment.getDoctorName(),result.getDoctorName());
+        assertEquals(saveAppointment.getPatientName(), result.getPatientName());
     }
 
-
-
 }
+
+
+
